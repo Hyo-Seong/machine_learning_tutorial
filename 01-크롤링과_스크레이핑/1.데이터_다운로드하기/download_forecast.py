@@ -7,9 +7,6 @@ values = {
     'stnId' : '108'
 }
 
-# urllib.parse.urlparse(urlstring, scheme='', allow_fragments=True)
-# 참고링크 : https://docs.python.org/3/library/urllib.parse.html
-# 사실 완벽히 이해하지는 못했다.
 params = urllib.parse.urlencode(values)
 
 # GET 방식
