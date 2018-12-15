@@ -10,6 +10,10 @@ html = """
 
 soup = BeautifulSoup(html, 'html.parser')
 
+# BeautifulSoup(string, parser종류)
+# parser종류 : html.parser, lxml, lxml-xml, xml, html5lib 등등..
+# 참고링크 : https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
 h1 = soup.html.body.h2
 p1 = soup.html.body.p
 p2 = p1.next_sibling.next_sibling
