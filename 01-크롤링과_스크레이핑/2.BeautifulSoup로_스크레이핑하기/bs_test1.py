@@ -19,7 +19,7 @@ p2 = p1.next_sibling.next_sibling
 # print("h2 = " + h2.string)
 # AttributeError: 'NoneType' object has no attribute 'string' 
 # NoneType을 체크하려면 다음 코드를 사용하자.
-# if variable is None: 
+# if variable is not None: ...
 # 참고링크 : https://stackoverflow.com/questions/23086383/how-to-test-nonetype-in-python
 
 print("h1 = " + h1.string)
