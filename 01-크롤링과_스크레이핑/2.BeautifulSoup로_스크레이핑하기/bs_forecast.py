@@ -13,7 +13,7 @@ if soup.find("title") is not None:
 if soup.find("wf") is not None:
     wf = soup.find("wf").string
 
-print(title, end='')
+print(title)
 print(wf)
 
 # print하면 자동 줄바꿈을 해준다. 만약 줄바꿈을 원치 않는다면?
