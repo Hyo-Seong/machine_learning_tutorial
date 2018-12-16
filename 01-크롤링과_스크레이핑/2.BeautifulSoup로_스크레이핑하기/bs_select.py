@@ -24,5 +24,6 @@ for li in li_list:
 
  # print("string : " + var) || print("string : ", string) 의 차이점은??
  # 없는 것 같다. 두개를 같이 사용해도 된다.
- # ex) print("string", " string " + "string", end='')
+ 
  # 하지만!! end='' 을 사용할 때는 ,을 사용해야한다. + 사용할 경우 SyntaxError: keyword can't be an expression 를 반환한다.
+ # ex) print("string", " string " + "string", end='')
