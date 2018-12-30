@@ -40,11 +40,11 @@ def download_file(url):
 
     if not os.path.exists(savedir):
     # 파일을 다운해야 할 경로가 존재하지 않는다면
-        print("mkdir=", savedir)
+        print("mkdir : ", savedir)
         makedirs(savedir)
         # 폴더 만들기
     try:
-        print("download=", url)
+        print("download : ", url)
         urlretrieve(url, savepath)
         # 파일을 해당 경로에 다운.
         time.sleep(1) # 1초이다 | 1ms 아님!
@@ -53,7 +53,7 @@ def download_file(url):
 
         return savepath
     except:
-        print("다운 실패: ", url)
+        print("download fail : ", url)
         return None
 
 def analyze_html(url, root_url):
@@ -69,7 +69,7 @@ def analyze_html(url, root_url):
     proc_files[savepath] = True
     # 저장된 것이라는 표식을 남김
 
-    print("analyze_html=", url)
+    print("analyze_html : ", url)
 
     html = open(savepath, "r", encoding="utf-8").read()
     links = enum_links(html, url)
