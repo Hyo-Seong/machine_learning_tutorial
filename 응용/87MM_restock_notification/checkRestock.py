@@ -1,7 +1,13 @@
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
+from selenium import webdriver
+
 
 def getHtml(scrapingUrl):
+    driver = webdriver.Chrome('C:\Users\hyoseong\Downloads\chromedriver_win32\chromedriver.exe')
+    driver.implicitly_wait(3)
+    # url에 접근한다.
+    driver.get(scrapingUrl)
     req = Request(scrapingUrl)
     html = urlopen(req).read()
     return BeautifulSoup(html, 'html.parser')
