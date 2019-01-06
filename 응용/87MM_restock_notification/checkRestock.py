@@ -4,19 +4,26 @@ from selenium import webdriver
 
 
 def getHtml(scrapingUrl):
-    driver = webdriver.Chrome('C:\Users\hyoseong\Downloads\chromedriver_win32\chromedriver.exe')
-    driver.implicitly_wait(3)
-    # url에 접근한다.
+
+    options = webdriver.ChromeOptions()
+    options.add_argument('headless')
+    options.add_argument('window-size=1920x1080')
+    options.add_argument("disable-gpu")
+
+    driver = webdriver.Chrome('C:/Users/hyoseong/Downloads/chromedriver_win32/chromedriver.exe', chrome_options=options)
+
     driver.get(scrapingUrl)
-    req = Request(scrapingUrl)
-    html = urlopen(req).read()
+    html = driver.page_source
     return BeautifulSoup(html, 'html.parser')
+
 
 def checkSizeList(scrapingUrl):
     soup = getHtml(scrapingUrl)
     list = soup.findAll('option')
-    for l in list:
-        print(l.string)
+    sizeList = []
+    for i in range(2, len(list)):
+        sizeList.append(list[i]['value'])
+    return sizeList
 
 def checkRestock(scrapingUrl, size):
     req = Request(scrapingUrl)
@@ -28,7 +35,10 @@ if __name__ == "__main__":
     print("확인하려는 87MM의 링크를 입력하세요 >> ", end='')
     scrapingUrl = input()
 
-    checkSizeList(scrapingUrl)
-    # print("\n사이즈를 입력하세요(S,M,L) >> ", end='')
-    # size = input()
-    # checkRestock(scrapingUrl)
+    sizeList = checkSizeList(scrapingUrl)
+    print("\n사이즈를 입력하세요 ")
+    for idx, val in enumerate(sizeList):
+        print(idx + 1, "\b.", val)
+    print("번호를 입력하세요. >> ", end='')
+    size = input()
+    # checkRestock(scrapingUrl, size)   
