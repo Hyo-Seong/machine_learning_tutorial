@@ -5,14 +5,17 @@ from selenium import webdriver
 
 def getHtml(scrapingUrl):
 
+    # 웹드라이버 실행시 크롬창 실행되는것 숨기는 코드
     options = webdriver.ChromeOptions()
     options.add_argument('headless')
     options.add_argument('window-size=1920x1080')
     options.add_argument("disable-gpu")
 
+    # 설정한 옵션을 웹드라이버에 적용한다.
     driver = webdriver.Chrome('C:/Users/hyoseong/Downloads/chromedriver_win32/chromedriver.exe', chrome_options=options)
 
     driver.get(scrapingUrl)
+    # 전체 페이지 코드를 불러온다. 코드를 가지고 있다가 가공은 다른 곳에서 진행된다.
     html = driver.page_source
     return BeautifulSoup(html, 'html.parser')
 
@@ -41,4 +44,4 @@ if __name__ == "__main__":
         print(idx + 1, "\b.", val)
     print("번호를 입력하세요. >> ", end='')
     size = input()
-    # checkRestock(scrapingUrl, size)   
+    # checkRestock(scrapingUrl, size)
