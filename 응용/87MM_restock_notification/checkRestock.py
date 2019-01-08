@@ -22,13 +22,17 @@ def getHtml(scrapingUrl):
 
 def checkSizeList(scrapingUrl):
     soup = getHtml(scrapingUrl)
-    list = soup.findAll('option')
+    list = soup.findAll('option') # TODO - HyoSeong 이부분 수정해야함. option으로 찾으면 다른값 섞일수 있음.
+    
     sizeList = []
+    
     for i in range(2, len(list)):
         sizeList.append(list[i]['value'])
+    
     if len(sizeList) == 0:
         print('사이즈정보를 받아들이지 못하였습니다.')
         getLink()
+
     chooseSize(sizeList)
 
 def aaa(sizeList):
