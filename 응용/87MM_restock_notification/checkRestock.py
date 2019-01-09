@@ -1,6 +1,10 @@
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 from selenium import webdriver
+import os
+    
+def cls(): 
+    os.system('CLS')
 
 
 def initWebDriver():
@@ -12,6 +16,7 @@ def initWebDriver():
     # 설정한 옵션을 웹드라이버에 적용한다.
     global driver
     driver = webdriver.Chrome('C:/Users/hyoseong/Downloads/chromedriver_win32/chromedriver.exe', chrome_options=options)
+    cls()
 
 def getHtml(scrapingUrl):
     driver.get(scrapingUrl)
@@ -55,6 +60,11 @@ def chooseSize(sizeList):
         print(idx + 1, "\b.", val)
     print("원하는 사이즈의 번호를 입력하세요. >> ", end='')
     size = input()
+
+    if not (int(size) <= len(sizeList) and int(size) > 0):
+        cls()
+        chooseSize(sizeList)
+
 
 if __name__ == "__main__":
     initWebDriver()
