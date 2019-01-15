@@ -4,4 +4,3 @@
 =====
 참고링크 : http://wikibook.co.kr/python-machine-learning/
 =====
-혹시 저작권에 문제가 된다면 바로 삭제하도록 하겠습니다.
